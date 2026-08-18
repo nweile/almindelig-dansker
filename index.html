@@ -25,11 +25,41 @@
             <p>
                 <span class="live-badge">● LIVE</span><br />
                 Se os live<br />
-                <span class="dato">d. 5. September</span>
-            </p>
+                <div id="tour-dates-container">
+                </div>            
+        </p>
         </div>
         <p class="footer-text">❤️ vi glæder os til at se dig</p>
     </main>
-
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        fetch('tour-dates.md')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Tour dates file not found');
+                }
+                return response.text();
+            })
+            .then(data => {
+                // Split by new lines and create span elements
+                const dates = data.split('\n').filter(line => line.trim() !== '');
+                const container = document.getElementById('tour-dates-container');
+                
+                if (container) {
+                    container.innerHTML = dates.map(date => 
+                        `<span class="dato">${date.trim()}</span>`
+                    ).join('');
+                }
+            })
+            .catch(error => {
+                console.log('Could not load tour dates:', error);
+                // Optionally show a message
+                const container = document.getElementById('tour-dates-container');
+                if (container) {
+                    container.innerHTML = '<span class="dato">Kommer snart!</span>';
+                }
+            });
+    });
+</script>
 </body>
 </html>
