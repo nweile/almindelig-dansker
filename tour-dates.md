@@ -1,4 +1,4 @@
 ## 2027
-### 5. september kl. 21.00 Havefest i Vanløse
-### 4. børgelademand Skideskur i stege havn
+lørdag 5. September havnefest i Vanløse
+Følg med her for flere datoer
 Flere datoer er på vej *<:-)
